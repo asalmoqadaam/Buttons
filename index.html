@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head
+<body>
+    <div class=button-columns>
+        <div class="left-buttons">
+            <!--first button-->
+            <div class="button-wrapper">
+                <div class="first-btn" onclick="this.classList.toggle('active')">
+                    <div class="circle"><i class="fa-solid fa-chevron-right"></i></div>
+                    <span class="label">Button 1</span>
+                </div>
+            </div>
+
+            <!--third button-->
+            <div class="third-btn">
+                <button class="third">
+                    <span class="third-label" data-text="Button 3">Button 3</span>
+                </button>
+            </div>
+
+            <!--fourth button-->
+            <div class="fourth-btn">
+                <button class="fourth">Button 4</button>
+            </div>
+            <!--tenth button-->
+            <div class="tenth-btn">
+                <button class="tenth">
+                    <span class="tenth-label">
+                        <span>B</span>
+                        <span>u</span>
+                        <span>t</span>
+                        <span>t</span>
+                        <span>o</span>
+                        <span>n</span>
+                        <span>10</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="middle-buttons">
+            <!--fifth button -->
+            <div class="fifth-btn-wrapper">
+                <div class="fifth-btn" onclick="this.classList.toggle('active')">
+                    <div class="circle-wrapper">
+                        <div class="fifth-circle"><i class="fa-solid fa-chevron-right"></i></div>
+                    </div>
+                    <span class="fifth-label">Button 5</span>
+                </div>
+            </div>
+            <!--sixth button -->
+            <div class="sixth-btn">
+                <button class="sixth">
+                    <span class=sixth-label>Button 6</span>
+                </button>
+            </div>
+            <!--second button-->
+            <div class="second-btn">
+                <button class="second">Button 2</button>
+            </div>
+            <!--eleventh button-->
+            <div class="eleventh-btn">
+                <button class="eleventh"></button>
+                <span class="eleventh-background">Button 11</span>
+            </div>
+        </div>
+
+        <div class="minimal-buttons">
+            <div class="seventh-btn" onclick="this.classList.toggle('active')">
+                <button class="seventh">
+                    <span class=seventh-label>Button 7</span>
+                    <div class="seventh-circle"></div>
+                </button>
+            </div>
+            <div class="eighth-btn" id="eighth-btn" onclick="this.classList.toggle('active')">
+                <button class="eighth">
+                    <span class="eighth-label" data-text="Button 8">Button 8</span>
+                    <span class="rectangle"></span>
+                </button>
+            </div>
+            <div class="ninth-btn" onclick="this.classList.toggle('active')">
+                <button class="ninth">
+                    <span class="ninth-label">Button 9</span>
+                    <span class="ninth-rectangle"></span>
+                </button>
+            </div>
+            <div class="forteenth-btn">
+                <button class="fourteenth" onclick="toggleSlide(this)">
+                    <div class="slide-inner">
+                        <div class="slide-text ffront"><span class="fancy-text">Button 14</span></div>
+                        <div class="slide-text  bback"><span class="fancy-text">Back</span></div>
+                </button>
+            </div>
+        </div>
+    <div class="buttons-3d">
+        <!--twelfth button-->
+        <div class="twelfth-btn">
+            <div class="twelfth" onclick="this.classList.toggle('flipped')">
+                <div class="face front">Button 12</div>
+                <div class="face back">Hello!</div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+        </div>
+        <!--thirteenth button-->
+        <div class="thirteenth-btn" onclick="popBubble(this)">
+            <div class="bubble"></div>
+            <div class="bubble-label">Button 13</div>
+            <div class="bubble-container">
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+
+</html>

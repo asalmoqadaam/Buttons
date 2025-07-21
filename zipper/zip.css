@@ -1,0 +1,142 @@
+body {
+    background-color: rgba(255, 235, 205, 0.118);
+    font-family:Arial, Helvetica, sans-serif;
+  }
+ /* Fourth Button - Zipper */
+ .button-container {
+    margin-top: 0px;
+    margin-left: 0px;
+    position: relative;
+    width: 200px;
+    height: 60px;
+  }
+  
+  .zipper-button {
+  
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #9c6ade;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .zipper-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 4px dashed #5c2d91;
+    border-radius: 4px;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+  
+  
+    .zipper-pull {
+      position: absolute;
+      top: -9px;
+      left: 0;
+      z-index: 10;
+      transition: left 0.5s ease;
+      transform-origin: center bottom;
+      width: auto; /* Let icon define width */
+      height: auto;
+  
+  }
+  
+  .zipper-pull:before {
+    content: none; /* disables extra circles */
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    top: -8px;
+    left: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .zipper-pull:after {
+    content: none; /* disables extra circles */
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #5c2d91;
+    border-radius: 50%;
+    top: -6px;
+    left: 7px;
+  }
+  
+  .button-container:hover .zipper-pull {
+    animation: zip-around 2s forwards;
+  }
+  
+  @keyframes zip-around {
+   0% {
+    left: 0;
+    top: -15px;
+    transform: rotate(90deg); /* ✅ this rotates the zipper */
+  }
+    25% { left: 180px; top: -15px; }
+    50% { left: 180px; top: 45px; }
+    75% { left: 0; top: 45px; }
+    100% { left: 0; top: -15px; }
+  }
+  
+  .button-container:hover .zipper-border {
+    animation: border-solid 2s forwards;
+  }
+  
+  @keyframes border-solid {
+    0% {
+        border-top: 3px dashed #5c2d91;
+        border-right: 3px dashed #5c2d91;
+        border-bottom: 3px dashed #5c2d91;
+        border-left: 3px dashed #5c2d91;
+    }
+    25% {
+        border-top: 3px solid #5c2d91;
+        border-right: 3px dashed #5c2d91;
+        border-bottom: 3px dashed #5c2d91;
+        border-left: 3px dashed #5c2d91;
+    }
+    50% {
+        border-top: 3px solid #5c2d91;
+        border-right: 3px solid #5c2d91;
+        border-bottom: 3px dashed #5c2d91;
+        border-left: 3px dashed #5c2d91;
+    }
+    75% {
+        border-top: 3px solid #5c2d91;
+        border-right: 3px solid #5c2d91;
+        border-bottom: 3px solid #5c2d91;
+        border-left: 3px dashed #5c2d91;
+    }
+    100% {
+        border: 3px solid #5c2d91;
+    }
+  }
+  
+  .button-container:not(:hover) .zipper-border {
+    animation: border-dashed 0.5s forwards;
+  }
+  
+  @keyframes border-dashed {
+    to {
+        border: 3px dashed #5c2d91;
+    }
+  }
+  .zipper-icon {
+    width: 30px;
+    height: auto;
+  }
+  

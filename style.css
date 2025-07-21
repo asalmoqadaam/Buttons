@@ -1,0 +1,1061 @@
+  body {
+    background-color: rgba(255, 255, 255, 0.38);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .button-columns {
+    display: flex;
+    gap: 80px;
+    margin-left: 50px;
+    margin-top: 30px;
+  }
+  .left-buttons,
+  .middle-buttons,
+  .minimal-buttons,
+  .buttons-3d {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .middle-buttons {
+    background-color: #161616;
+    height: fit-content;
+    padding: 30px 20px;
+  }
+
+  .left-buttons {
+    padding: 30px 20px;
+    background-color: white;
+  }
+
+  .minimal-buttons {
+    padding: 30px 20px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .buttons-3d {
+    padding: 30px 20px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  /*-----------first button--------------------------*/
+  .first-btn {
+    align-items: center;
+    position: relative;
+    display: flex;
+    width: 190px;
+    height: 60px;
+    border: rgb(255, 255, 255) solid 1px;
+    border-radius: 40px;
+    background: linear-gradient(to right, #6d0162b9, #ff04d150, hsla(45, 100%, 66%, 0.715));
+    box-shadow: 0 6px 12px #6d01626e;
+    cursor: pointer;
+    transition: background-position 0.8s ease;
+    /* Smooth move */
+    overflow: hidden;
+  }
+
+  .circle {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: rgba(255, 255, 255, 0.207) solid 1px;
+    box-shadow: 0px 6px 12px #6d01626b;
+    transition: all 0.8s ease;
+    z-index: 1;
+  }
+
+  .label {
+    flex: 1;
+    text-align: center;
+    margin-left: 35px;
+    color: white;
+    font-size: 25px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .first-btn i {
+    color: rgb(255, 255, 255);
+    position: relative;
+    z-index: 2;
+  }
+
+  .first-btn.active .circle {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    /* match button’s border radius */
+    background-color: transparent;
+  }
+
+  .first-btn.active .circle i {
+    transform: rotate(-180deg) translateX(-78px);
+  }
+
+  /*-----------second button--------------------------*/
+  .second {
+    position: relative;
+    z-index: 1;
+    padding: 15px 40px;
+    font-size: 30px;
+    border: none;
+    border-radius: 40px;
+    color: #FFF;
+    background-color: #161616;
+    cursor: pointer;
+    box-shadow:
+      2px 0 70px #ffffff29;
+
+  }
+
+  /* Glowing border layer */
+  .second::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: inherit;
+    background: linear-gradient(60deg,
+        rgb(8, 0, 255), deeppink, yellow);
+    background-size: 300%;
+    opacity: 0;
+    filter: blur(2px);
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Hover activates and animates the glow */
+  .second:hover::before {
+    opacity: 1;
+    animation: glowShift 2s linear infinite;
+  }
+
+  @keyframes glowShift {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+
+  /*-----------third button--------------------------*/
+  .third {
+    position: relative;
+    height: 60px;
+    width: 180px;
+    border-radius: 40px;
+    padding: 15px 30px;
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .third-label {
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover effect: show colored shadows */
+  .third-label:hover::before,
+  .third-label:hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    pointer-events: none;
+    z-index: -1;
+    color: transparent;
+    transition: opacity 0.3s ease;
+    filter: blur(2px);
+  }
+
+  /* Pink for left half */
+  .third-label:hover::before {
+    text-shadow: 0 1px 0 rgb(234, 0, 255);
+    -webkit-mask-image: linear-gradient(to right, black 50%, transparent 50%);
+    mask-image: linear-gradient(to right, black 50%, transparent 50%);
+  }
+
+  /* Blue for right half */
+  .third-label:hover::after {
+    text-shadow: 0 1px 0 rgb(0, 255, 204);
+    -webkit-mask-image: linear-gradient(to left, black 50%, transparent 50%);
+    mask-image: linear-gradient(to left, black 50%, transparent 50%);
+  }
+
+  .third::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 3px;
+    background: linear-gradient(120deg,
+        rgb(234, 0, 255) 100px,
+        rgb(0, 255, 204) 30px);
+
+    background-size: 300% 100%;
+    border-radius: inherit;
+    z-index: -1;
+
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    box-sizing: border-box;
+    transition: background-position 2s ease;
+  }
+
+  .third:hover::before {
+    background-position: 100% 0;
+  }
+
+  /*-----------fourth button--------------------------*/
+  .fourth {
+    font-family: 'VT323', monospace;
+    position: relative;
+    overflow: hidden;
+    font-size: 25px;
+    width: 190px;
+    height: 60px;
+    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgb(253, 253, 253);
+    color: black;
+    cursor: pointer;
+    box-shadow:
+      4px 4px 8px rgba(255, 185, 220, 0.4),
+      4px 4px 8px rgba(255, 185, 220, 0.818),
+      /* soft pink bottom-right */
+      -4px -4px 8px rgba(0, 255, 0, 0.3),
+      /* soft green top-left */
+      4px -4px 8px rgba(255, 255, 0, 0.3);
+    /* soft yellow top-right */
+  }
+
+  .fourth:hover {
+    animation: balancedSweep 0.75s linear forwards;
+    transform: scale(1.03);
+    transition: ease 1s;
+  }
+
+  .fourth::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.2));
+    transform: skewX(-20deg);
+    transition: 0.5s;
+    pointer-events: none;
+  }
+
+  .fourth:hover::after {
+    left: 125%;
+
+  }
+
+  @keyframes balancedSweep {
+    0% {
+      box-shadow:
+        4px 4px 8px rgba(255, 185, 220, 0.4),
+        -4px -4px 8px rgba(0, 255, 0, 0.3),
+        4px -4px 8px rgba(255, 255, 0, 0.3);
+    }
+
+    50% {
+      box-shadow:
+        6px 6px 12px rgba(255, 100, 180, 0.6),
+        -6px -6px 12px rgba(50, 255, 100, 0.4),
+        6px -6px 12px rgba(255, 255, 0, 0.4);
+    }
+
+    100% {
+      box-shadow:
+        8px 8px 16px rgba(255, 100, 180, 0.8),
+        -8px -8px 16px rgba(50, 255, 100, 0.5),
+        8px -8px 16px rgba(255, 255, 0, 0.5);
+    }
+  }
+
+  .fourth:hover {
+    animation: balancedSweep 0.8s ease-in-out;
+  }
+
+
+  /*-----------fifth button--------------------------*/
+  .fifth-btn {
+    align-items: center;
+    position: relative;
+    display: flex;
+    width: 190px;
+    height: 60px;
+    background: black;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 0 10px white;
+    opacity: 1;
+    transition: background 1s ease;
+  }
+
+  .fifth-btn-wrapper {
+    display: inline-block;
+    padding: 3px;
+    border-radius: 40px;
+    background: linear-gradient(135deg,
+        rgb(0, 234, 255), rgb(0, 162, 255),
+        rgb(0, 94, 255), rgb(0, 255, 204));
+    transition: 1s ease;
+  }
+
+  .fifth-btn i {
+    color: white;
+    /* text-shadow: 0 0 7px rgba(255, 255, 255, 0.675); */
+  }
+
+  .fifth-label {
+    flex: 1;
+    margin-left: 65px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    position: absolute;
+    z-index: 2;
+    text-shadow: 0 0 7px rgba(255, 255, 255, 0.675);
+  }
+
+  .fifth-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(0);
+    z-index: 1;
+    opacity: 1;
+    background: rgba(0, 162, 255, 0.56);
+    border: white;
+  }
+
+  .fifth-btn.active {
+    background: rgba(0, 162, 255, 0.56);
+    transition: background 0.8 ease;
+  }
+
+  .fifth-btn.active .fifth-circle {
+    transform: translateX(148px);
+    background: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transition: all 0.8s ease;
+  }
+
+  .fifth-btn.active i {
+    transform: rotate(180deg)
+  }
+
+  /*-----------sixth button--------------------------*/
+  .sixth {
+    --x: 50%;
+    --y: 50%;
+    --glow-color: rgb(179, 0, 255);
+
+    position: relative;
+    font-size: 30px;
+    border-radius: 40px;
+    width: 190px;
+    height: 60px;
+    color: white;
+    background: black;
+    border: 2px solid #b300ff;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow:
+      20px 0 70px -10px #b300ff,
+      -20px 0 70px -10px #1e00ff;
+    transition: background 0.2s ease;
+  }
+
+
+  .sixth.hovering {
+    background: radial-gradient(circle at var(--x) var(--y),
+        var(--glow-color),
+        black 60%);
+  }
+
+  /*-----------seventh button--------------------------*/
+  .seventh {
+    justify-content: center;
+    /* centers text horizontally */
+    align-items: center;
+    position: relative;
+    display: flex;
+    width: 190px;
+    height: 60px;
+    border: none;
+    border-radius: 4px;
+    background: #d1c7bda2;
+    box-shadow: 0 3px 12px rgba(147, 147, 147, 0.257);
+  }
+
+  .seventh-label {
+    font-variant-numeric: lining-nums;
+    font-size: 30px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: #3b2f2f;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3),
+      -1px -1px 1px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #6c574d, #d5bba0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .seventh-circle {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    border-top-left-radius: 50%;
+    background: #f1ede6;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(147, 147, 147, 0.553);
+  }
+
+  .seventh-btn.active .seventh-circle {
+    width: 90%;
+    height: 90%;
+    background: #f1ede647;
+    transition: all 0.5s ease;
+    z-index: 0;
+    border-top-left-radius: 0%;
+  }
+
+  /*-----------eighth button--------------------------*/
+  .eighth {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    width: 190px;
+    height: 60px;
+    border: none;
+    border-radius: 4px;
+    background-color: #d1dbbd;
+    box-shadow: 0 3px 12px rgba(147, 147, 147, 0.257);
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .eighth-label {
+    font-size: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    z-index: 1;
+    background: linear-gradient(135deg, hsl(99, 73%, 20%), #b0b89f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .rectangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 190px;
+    height: 60px;
+    background-color: #ffffff82;
+    z-index: 0;
+    opacity: 0;
+    transform: translateY(-120px);
+    /* start hidden above */
+    transition: none;
+    box-shadow: 0 3px 12px rgba(147, 147, 147, 0.257);
+  }
+
+  .eighth:hover .rectangle {
+    animation: heavyDrop 0.9s ease forwards;
+  }
+
+  @keyframes heavyDrop {
+    0% {
+      transform: translateY(-120px);
+      opacity: 0;
+    }
+
+    50% {
+      transform: translateY(10px);
+      opacity: 1;
+    }
+
+    70% {
+      transform: translateY(-5px);
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /*-----------ninth button--------------------------*/
+  .ninth {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    width: 190px;
+    height: 60px;
+    border: 1px solid #44576d;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+    z-index: 3;
+    overflow: visible
+  }
+
+  .ninth-label {
+    font-size: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    z-index: 1;
+    background: linear-gradient(135deg, #122d4ccc, #97c3f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+
+  .ninth-rectangle {
+    position: absolute;
+    width: 190px;
+    height: 60px;
+    background-color: #aac7d85e;
+    box-shadow: 4px 2px 6px #44576dcc;
+    /* background-color: #0f1c3f;*/
+    /*background-color:#cdb4db;*/
+    /*background-color: #a8d5ba;*/
+    border-radius: 4px;
+    top: 10px;
+    left: 20px;
+    z-index: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .ninth-btn.active .ninth-rectangle {
+    transform: translateX(-20px) translateY(-10px);
+
+  }
+
+  /*-----------tenth button--------------------------*/
+  .tenth {
+    width: 190px;
+    height: 60px;
+    background-color: #a8d5ba;
+    border-radius: 40px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 3px 12px #9191916b;
+  }
+
+  .tenth-label {
+    font-size: 20px;
+    display: flex;
+    gap: 4px;
+    text-shadow: 0px 3px 9px #000000a0;
+  }
+
+  .tenth-label span {
+    display: inline-block;
+    transition: transform 0.4s ease;
+  }
+
+  .tenth:hover .tenth-label span:nth-child(1) {
+    transform: translateY(1.2em);
+    transition-delay: 0s;
+  }
+
+  .tenth:hover .tenth-label span:nth-child(2) {
+    transform: translateY(1.1em);
+    transition-delay: 0.05s;
+  }
+
+  .tenth:hover .tenth-label span:nth-child(3) {
+    transform: translateY(1.1em);
+    transition-delay: 0.1s;
+  }
+
+  .tenth:hover .tenth-label span:nth-child(4) {
+    transform: translateY(1.1em);
+    transition-delay: 0.15s;
+  }
+
+  .tenth:hover .tenth-label span:nth-child(5) {
+    transform: translateY(1.1em);
+    transition-delay: 0.2s;
+  }
+
+  .tenth:hover .tenth-label span:nth-child(6) {
+    transform: translateY(1.1em);
+    transition-delay: 0.25s;
+  }
+
+  .tenth:hover .tenth-label span:nth-child(7) {
+    transform: translateY(1.1em);
+    transition-delay: 0.3s;
+  }
+
+  /* Reverse wave back to original when hover ends */
+  .tenth-label span:nth-child(1) {
+    transition-delay: 0.3s;
+  }
+
+  .tenth-label span:nth-child(2) {
+    transition-delay: 0.25s;
+  }
+
+  .tenth-label span:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+
+  .tenth-label span:nth-child(4) {
+    transition-delay: 0.15s;
+  }
+
+  .tenth-label span:nth-child(5) {
+    transition-delay: 0.1s;
+  }
+
+  .tenth-label span:nth-child(6) {
+    transition-delay: 0.05s;
+  }
+
+  .tenth-label span:nth-child(7) {
+    transition-delay: 0s;
+  }
+
+  /*-----------eleventh button--------------------------*/
+  .eleventh-btn {
+    position: relative;
+    perspective: 800px;
+    display: inline-flex;
+    width: 190px;
+    height: 60px;
+  }
+
+  .eleventh-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 50px;
+    background: black;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    box-shadow: none;
+    text-align: center;
+    line-height: 40px;
+
+  }
+
+  .eleventh {
+    border: none;
+    outline: none;
+    position: relative;
+    width: 190px;
+    height: 60px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, hsl(31, 100%, 72%), #1cffff);
+    z-index: 2;
+    transition: all 0.8s ease;
+    cursor: pointer;
+    box-shadow:
+      -6px -4px 16px rgba(255, 165, 0, 0.25),
+      /* top-left orange */
+      6px -4px 16px rgba(0, 200, 255, 0.25),
+      /* top-right blue */
+      -6px 4px 16px rgba(255, 165, 0, 0.25),
+      /* bottom-left orange */
+      6px 4px 16px rgba(0, 200, 255, 0.25);
+    /* bottom-right blue */
+    transform-style: preserve-3d;
+  }
+
+  .eleventh-btn.active .eleventh {
+    transform:  rotateY(-180deg);
+  }
+
+  /*-----------twelfth button--------------------------*/
+  .buttons-3d {
+    padding: 30px 20px;
+    background-color: none;
+    perspective: 1000px;
+  }
+
+  .twelfth {
+    margin-bottom: 40px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 0.8s cubic-bezier(0.45, 0, 0.55, 1);
+    /* more natural easing */
+    cursor: pointer;
+  }
+
+  .twelfth.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .face {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    border: 1px solid #ffffff;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), 0 0 6px rgba(0, 0, 0, 0.2);
+    text-shadow:
+      1px 1px 0 #000,
+      2px 2px 1px rgba(0, 0, 0, 0.3),
+      0 0 6px rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.5px;
+    text-align: center;
+    background-blend-mode: overlay;
+  }
+
+  .face.top {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .front {
+    background: linear-gradient(135deg, #1a1a2e 10%, #b2b8c8 80%);
+    transform: translateZ(50px);
+  }
+
+  .back {
+    background: linear-gradient(135deg, #1a1a2e 20%, #b2b8c8 100%);
+    transform: rotateY(180deg) translateZ(50px);
+  }
+
+  .right {
+    background: linear-gradient(135deg, #1a1a2e 20%, #b2b8c8 100%);
+    transform: rotateY(90deg) translateZ(50px);
+  }
+
+  .left {
+    background: linear-gradient(135deg, #1a1a2e 20%, #b2b8c8 100%);
+    transform: rotateY(-90deg) translateZ(50px);
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(50px);
+    background: linear-gradient(to bottom, #0f111a, #2e344f);
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+    background: linear-gradient(to top, #0f111a, #2a2f4a);
+  }
+
+  /*-----------thirteenth button--------------------------*/
+
+  .thirteenth-btn {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 40px;
+    margin-right: 10px;
+  }
+
+  .bubble-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: rgb(248, 168, 180);
+    pointer-events: none;
+    z-index: 3;
+    transition: opacity 0.3s ease;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 500;
+    white-space: nowrap;
+
+  }
+
+  .bubble {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* background: radial-gradient(circle at 30% 30%, #fae9f9, #f16af4);
+    box-shadow:
+      inset -5px -5px 15px rgba(255, 255, 255, 0.3),
+      5px 5px 12px rgba(0, 0, 0, 0.2);*/
+    background: radial-gradient(circle at 30% 30%,
+        rgb(255, 255, 255) 10%,
+        rgba(255, 182, 193, 0.3) 40%,
+        rgba(173, 216, 230, 0.445) 70%,
+        rgba(39, 186, 235, 0.478) 100%);
+    box-shadow:
+      0 0 9px rgba(157, 148, 148, 0.405),
+      inset -8px 0 10px rgba(186, 176, 176, 0.257),
+      inset 8px 0 12px rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(1px);
+    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
+    z-index: 2;
+  }
+
+  .popped .bubble {
+    animation: popEffect 0.4s forwards;
+  }
+
+
+  @keyframes popEffect {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    30% {
+      transform: scale(1.3);
+      filter: blur(2px);
+    }
+
+    70% {
+      transform: scale(0.6);
+      filter: blur(5px);
+      opacity: 0.3;
+    }
+
+    100% {
+      transform: scale(0);
+      opacity: 0;
+      filter: blur(8px);
+    }
+  }
+
+  @keyframes crackFlash {
+    0% {
+      opacity: 0;
+    }
+
+    30% {
+      opacity: 0.8;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .thirteenth-btn.popped .bubble-label {
+    animation: crackFlash 0.3s forwards;
+  }
+
+  .bubble-container {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .tiny-bubble {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at 30% 30%, #ffffffcc, #ccf0ffc4);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  .tiny-bubble:nth-child(1) {
+    width: 30px;
+    height: 30px;
+  }
+
+  .tiny-bubble:nth-child(2) {
+    width: 40px;
+    height: 40px;
+  }
+
+  .popped .tiny-bubble:nth-child(1) {
+    animation: floatBubble 2s ease-in-out forwards;
+    left: -10px;
+    animation-delay: 0s;
+  }
+
+  .popped .tiny-bubble:nth-child(2) {
+    animation: floatBubble 2s ease-in-out forwards;
+    left: 0;
+    top: 40px;
+    animation-delay: 0.3s;
+  }
+
+  .popped .tiny-bubble:nth-child(3) {
+    animation: floatBubble 2s ease-in-out forwards;
+    left: 30px;
+    animation-delay: 0.6s;
+  }
+
+  @keyframes floatBubble {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.6;
+    }
+
+    80% {
+      opacity: 1;
+      transform: translateY(-60px) scale(1.2);
+    }
+
+    100% {
+      transform: translateY(-70px) scale(0);
+      opacity: 0;
+    }
+  }
+
+  /*-----------  fourteenth button--------------------------*/
+  .fourteenth {
+    width: 190px;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .slide-inner {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transition: transform 0.5s ease;
+  }
+  
+  /* Front and back halves of the button */
+  .slide-text {
+    width: 50%;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+    flex-shrink: 0;
+    background-size: 200% auto;
+    letter-spacing: 1.5px;
+  }
+  
+  /* Shimmering elegant text */
+  .fancy-text {
+    display: inline-block;
+    font-size: 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: linear-gradient(120deg, #ffffff 20%, #fbd1c7 40%, #ffffff 60%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 5s linear infinite;
+  }
+  
+  /* Keyframes for shimmer animation */
+  @keyframes shimmer {
+    0% {
+      background-position: 200% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+  
+  /* Background colors */
+  .ffront {
+    background-color: #d3878a;
+  }
+  
+  .bback {
+    background-color: #d9b0a7;
+  }
+  
+  /* Slide animation class */
+  .fourteenth.slid .slide-inner {
+    transform: translateX(-50%);
+  }
+  
