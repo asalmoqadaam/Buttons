@@ -1024,27 +1024,14 @@
   /* Shimmering elegant text */
   .fancy-text {
     display: inline-block;
-    font-size: 28px;
+    font-size: 30px;
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 2px;
-    background: linear-gradient(120deg, #ffffff 20%, #fbd1c7 40%, #ffffff 60%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 5s linear infinite;
+    font-size: 26px;
+    color: white;
   }
-  
-  /* Keyframes for shimmer animation */
-  @keyframes shimmer {
-    0% {
-      background-position: 200% center;
-    }
-    100% {
-      background-position: -200% center;
-    }
-  }
-  
+
   /* Background colors */
   .ffront {
     background-color: #d3878a;
@@ -1053,9 +1040,11 @@
   .bback {
     background-color: #d9b0a7;
   }
+
   
   /* Slide animation class */
   .fourteenth.slid .slide-inner {
     transform: translateX(-50%);
   }
+
   
