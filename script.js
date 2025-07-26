@@ -24,20 +24,20 @@
     this.classList.toggle('active');
   });
 //13
-const bubble = document.getElementById('bubble');
-const sound = document.getElementById('popSound');
+// const bubble = document.getElementById('bubble');
+// const sound = document.getElementById('popSound');
 
-bubble.addEventListener('click', () => {
-  bubble.classList.add('pop_bubble');
-  sound.currentTime = 0;
-  sound.play();
-  sound.onended = () => {
-    bubble.classList.remove('pop_bubble');
-  };
-  setTimeout(() => {
-    bubble.classList.remove('pop_bubble');
-  }, 500);
-});
+// bubble.addEventListener('click', () => {
+//   bubble.classList.add('pop_bubble');
+//   sound.currentTime = 0;
+//   sound.play();
+//   sound.onended = () => {
+//     bubble.classList.remove('pop_bubble');
+//   };
+//   setTimeout(() => {
+//     bubble.classList.remove('pop_bubble');
+//   }, 500);
+// });
 //13
 
 function popBubble(el) {
