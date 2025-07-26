@@ -45,10 +45,10 @@ function popBubble(el) {
     el.classList.add('popped');
 
     // Show small bubbles
-    const bubbles = el.querySelectorAll('.small-bubble');
-    bubbles.forEach((b, i) => {
-      b.style.animation = `bubbleRise 1.2s ease ${i * 0.2}s forwards`; // staggered
-    });
+    // const bubbles = el.querySelectorAll('.small-bubble');
+    // bubbles.forEach((b, i) => {
+    //   b.style.animation = `bubbleRise 1.2s ease ${i * 0.2}s forwards`; // staggered
+    // });
 
     // Hide big bubble & text immediately
     el.querySelector('.bubble').style.opacity = '0';
